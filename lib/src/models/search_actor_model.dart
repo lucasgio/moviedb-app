@@ -1,6 +1,5 @@
 class BusquedaActor {
   final List<SearchActor> listasActores = [];
-  final List<SearchActor> listaDetallesActores = [];
 
   BusquedaActor.formJsonList(List<dynamic> jsonList) {
     if (jsonList == null) return;

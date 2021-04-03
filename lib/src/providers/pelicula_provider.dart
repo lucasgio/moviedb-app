@@ -89,7 +89,8 @@ class PeliculaProvider {
     });
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
-    final actores = new BusquedaActor.formJsonList(decodeData['know_for']);
+    final actores = new BusquedaActor.formJsonList(decodeData['results']);
+    return actores.listasActores;
   }
 
   // Future<List> cargarGeneros() async {
