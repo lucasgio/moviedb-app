@@ -9,7 +9,6 @@ class PeliculaDetalle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Pelicula pelicula = ModalRoute.of(context).settings.arguments;
-
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -62,7 +61,7 @@ class PeliculaDetalle extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Hero(
-            tag: pelicula.id,
+            tag: pelicula.uniqueid,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: Image(
@@ -104,7 +103,8 @@ class PeliculaDetalle extends StatelessWidget {
                   children: <Widget>[
                     Text(_date),
                   ],
-                )
+                ),
+                _generos(pelicula)
               ],
             ),
           ),
@@ -172,5 +172,13 @@ class PeliculaDetalle extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _generos(Pelicula pelicula) {
+    for (var item in pelicula.genreIds) {
+      print(item);
+    }
+
+    return Container();
   }
 }

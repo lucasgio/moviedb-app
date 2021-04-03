@@ -18,8 +18,9 @@ class CardSwiper extends StatelessWidget {
         itemWidth: _screensizes.width * 0.7,
         itemHeight: _screensizes.height * 0.5,
         itemBuilder: (BuildContext context, int index) {
+          peliculas[index].uniqueid = '${peliculas[index].id} - card';
           return Hero(
-            tag: peliculas[index].id,
+            tag: peliculas[index].uniqueid,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20.0),
               child: GestureDetector(

@@ -40,7 +40,6 @@ class ActorSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     //  Muestra las sugerencias al usuario
-    print(query);
     if (query.isEmpty) {
       return Container();
     } else {
