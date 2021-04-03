@@ -43,7 +43,7 @@ class PeliculaDetalle extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         background: FadeInImage(
-          placeholder: AssetImage("assets/no-image.jpg"),
+          placeholder: AssetImage("assets/loading.gif"),
           image: NetworkImage(pelicula.getBackgroundImg()),
           fadeInDuration: Duration(milliseconds: 150),
           fit: BoxFit.cover,
@@ -93,18 +93,12 @@ class PeliculaDetalle extends StatelessWidget {
                     SizedBox(
                       width: 10.0,
                     ),
+                    Text(
+                      _date,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ],
                 ),
-                SizedBox(
-                  height: 5.0,
-                  width: 10.0,
-                ),
-                Row(
-                  children: <Widget>[
-                    Text(_date),
-                  ],
-                ),
-                _generos(pelicula)
               ],
             ),
           ),
@@ -172,13 +166,5 @@ class PeliculaDetalle extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Widget _generos(Pelicula pelicula) {
-    for (var item in pelicula.genreIds) {
-      print(item);
-    }
-
-    return Container();
   }
 }

@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+
 import 'package:moviedb/src/models/actores_model.dart';
-import 'package:moviedb/src/models/generos_model.dart';
 import 'package:moviedb/src/models/pelicula_model.dart';
 import 'package:moviedb/src/models/search_actor_model.dart';
 
@@ -13,6 +14,11 @@ class PeliculaProvider {
   int _pagePopular = 0;
   bool _cargando = false;
   List<Pelicula> _populares = [];
+  List<dynamic> generos = [];
+
+  PeliculaProvider() {
+    cargarGeneros();
+  }
 
   final _popularesStreamController =
       StreamController<List<Pelicula>>.broadcast();
@@ -92,14 +98,9 @@ class PeliculaProvider {
     return actores.listasActores;
   }
 
-  Future<List<Generos>> generosList() async {
-    final url = Uri.https(_url, '3/genre/movie/list', {
-      "api_key": _apikey,
-      "language": _language,
-    });
-    final resp = await http.get(url);
-    final decodeData = json.decode(resp.body);
-    final generos = new GeneroList.fromJsonList(decodeData['genres']);
-    return generos.genrs;
+  cargarGeneros() async {
+    final resp = await rootBundle.loadString('assets/generos.json');
+    Map dataGeneros = json.decode(resp);
+    generos = dataGeneros['generos'];
   }
 }
