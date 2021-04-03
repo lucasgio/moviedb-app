@@ -63,7 +63,7 @@ class ActorSearch extends SearchDelegate {
                         onTap: () {
                           close(context, null);
                           Navigator.pushNamed(context, 'detalle',
-                              arguments: busqueda);
+                              arguments: busqueda.detalle);
                         },
                       ))
                   .toList(),
