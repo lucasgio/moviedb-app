@@ -62,8 +62,8 @@ class ActorSearch extends SearchDelegate {
                         subtitle: Text(busqueda.knownForDepartment),
                         onTap: () {
                           close(context, null);
-                          Navigator.pushNamed(context, 'detalle',
-                              arguments: busqueda.detalle);
+                          Navigator.pushNamed(context, 'actordetalle',
+                              arguments: busqueda);
                         },
                       ))
                   .toList(),

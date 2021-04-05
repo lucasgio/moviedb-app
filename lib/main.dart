@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:moviedb/src/pages/actor_detalle.dart';
 
 import 'package:moviedb/src/pages/home_page.dart';
 import 'package:moviedb/src/pages/peliculas_detalle.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (BuildContext context) => HomePage(),
         'detalle': (BuildContext context) => PeliculaDetalle(),
+        'actordetalle': (BuildContext context) => DetallesActor(),
       },
     );
   }

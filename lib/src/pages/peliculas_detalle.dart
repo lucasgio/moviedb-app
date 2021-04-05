@@ -60,14 +60,11 @@ class PeliculaDetalle extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
         children: <Widget>[
-          Hero(
-            tag: pelicula.uniqueid,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20.0),
-              child: Image(
-                image: NetworkImage(pelicula.getPosterImg()),
-                height: 150.0,
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20.0),
+            child: Image(
+              image: NetworkImage(pelicula.getPosterImg()),
+              height: 150.0,
             ),
           ),
           SizedBox(
@@ -123,6 +120,7 @@ class PeliculaDetalle extends StatelessWidget {
     return FutureBuilder(
       future: peliProvider.getCast(pelicula.id.toString()),
       builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+        print(snapshot.data);
         if (snapshot.hasData) {
           return _crearActoresPageView(snapshot.data);
         } else {

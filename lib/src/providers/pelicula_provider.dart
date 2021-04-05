@@ -93,6 +93,19 @@ class PeliculaProvider {
     return actores.listasActores;
   }
 
+  Future<List<SearchActor>> getActorPeliculas(String query) async {
+    final url = Uri.https(_url, '3/search/person', {
+      "api_key": _apikey,
+      "language": _language,
+      "query": query,
+    });
+    final resp = await http.get(url);
+    final decodeData = json.decode(resp.body);
+    final actores =
+        new BusquedaActor.procesarDetallesPeliculas(decodeData['results']);
+    return actores.listaPeliculasDetallesActor;
+  }
+
   // Future<List> cargarGeneros() async {
   //   final resp = await rootBundle.loadString('assets/generos.json');
   //   Map<String, dynamic> dataGeneros = json.decode(resp);
