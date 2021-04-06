@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:moviedb/src/models/actores_model.dart';
 import 'package:moviedb/src/models/pelicula_model.dart';
 import 'package:moviedb/src/models/search_actor_model.dart';
+import 'package:moviedb/src/streams/peliculas_populares_stream.dart';
 
 class PeliculaProvider {
   String _apikey = "5962b5a668af804fc284b1e0a5ec4b9c";
@@ -13,18 +14,7 @@ class PeliculaProvider {
   int _pagePopular = 0;
   bool _cargando = false;
   List<Pelicula> _populares = [];
-
-  final _popularesStreamController =
-      StreamController<List<Pelicula>>.broadcast();
-
-  Function(List<Pelicula>) get popularesSink =>
-      _popularesStreamController.sink.add;
-  Stream<List<Pelicula>> get popularesStream =>
-      _popularesStreamController.stream;
-
-  void diposeStream() {
-    _popularesStreamController?.close();
-  }
+  final moviesPopularesStream = new PopularesStream();
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
     final resp = await http.get(url);
@@ -53,7 +43,7 @@ class PeliculaProvider {
 
     final _resp = await _procesarRespuesta(url);
     _populares.addAll(_resp);
-    popularesSink(_populares);
+    moviesPopularesStream.popularesSink(_populares);
     _cargando = false;
     return _resp;
   }
