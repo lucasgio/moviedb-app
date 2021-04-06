@@ -140,21 +140,26 @@ class PeliculaDetalle extends StatelessWidget {
             initialPage: 1,
           ),
           itemCount: actores.length,
-          itemBuilder: (context, i) => _actorTarjeta(actores[i])),
+          itemBuilder: (context, i) => _actorTarjeta(context, actores[i])),
     );
   }
 
-  Widget _actorTarjeta(Actor actor) {
+  Widget _actorTarjeta(BuildContext context, Actor actor) {
     return Container(
       child: Column(
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(20.0),
-            child: FadeInImage(
-              placeholder: AssetImage("assets/no-image.jpg"),
-              image: NetworkImage(actor.getActorimg()),
-              height: 150.0,
-              fit: BoxFit.cover,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, 'detalle', arguments: actor.name);
+              },
+              child: FadeInImage(
+                placeholder: AssetImage("assets/no-image.jpg"),
+                image: NetworkImage(actor.getActorimg()),
+                height: 150.0,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Text(

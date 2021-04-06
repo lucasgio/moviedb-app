@@ -13,7 +13,6 @@ class PeliculaProvider {
   int _pagePopular = 0;
   bool _cargando = false;
   List<Pelicula> _populares = [];
-  // List<dynamic> generos = [];
 
   final _popularesStreamController =
       StreamController<List<Pelicula>>.broadcast();
@@ -31,7 +30,6 @@ class PeliculaProvider {
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
     final peliculas = new Peliculas.fromJsonList(decodeData['results']);
-
     return peliculas.items;
   }
 

@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
 
   Widget _footer(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 400.0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -85,6 +85,7 @@ class HomePage extends StatelessWidget {
 
   Widget _popMenuButton(BuildContext context) {
     return PopupMenuButton<MenuOption>(
+      icon: Icon(Icons.search_rounded),
       itemBuilder: (context) {
         return <PopupMenuEntry<MenuOption>>[
           PopupMenuItem(

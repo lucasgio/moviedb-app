@@ -117,18 +117,21 @@ class DetallesActor extends StatelessWidget {
       child: ListView.builder(
           itemCount: detalles.length,
           itemBuilder: (BuildContext context, i) =>
-              _crearListadoPeliculas(detalles[i])),
+              _crearListadoPeliculas(context, detalles[i])),
     );
   }
 
-  Widget _crearListadoPeliculas(SearchActor detalles) {
+  Widget _crearListadoPeliculas(BuildContext context, SearchActor detalles) {
     return ListTile(
-      leading: FadeInImage(
-        placeholder: AssetImage('assets/no-image.jpg'),
-        image: NetworkImage(detalles.getAcotrPeli()),
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(10.0),
+        child: FadeInImage(
+          placeholder: AssetImage('assets/no-image.jpg'),
+          image: NetworkImage(detalles.getAcotrPeli()),
+        ),
       ),
       title: Text(detalles.title),
-      subtitle: Text(detalles.overview),
+      subtitle: Text(detalles.overview, overflow: TextOverflow.ellipsis),
     );
   }
 }
