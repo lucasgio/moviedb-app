@@ -17,7 +17,6 @@ class DetallesActor extends StatelessWidget {
                 height: 20.0,
               ),
               _posterTiltulo(context, detalles),
-              // _descripcion(detalles),
               _crearPeliDetalles(detalles),
             ]),
           ),
@@ -45,9 +44,6 @@ class DetallesActor extends StatelessWidget {
   }
 
   Widget _posterTiltulo(BuildContext context, SearchActor detalles) {
-    // final DateTime _stringDate = DateTime.parse(detalles.releaseDate);
-    // final String _date = formatDate(_stringDate, [yyyy]);
-
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Row(
@@ -62,36 +58,7 @@ class DetallesActor extends StatelessWidget {
           SizedBox(
             width: 20.0,
           ),
-          Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  detalles.name,
-                  style: Theme.of(context).textTheme.headline6,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Row(
-                  children: [
-                    Icon(Icons.star_border_outlined),
-                    Text(
-                      detalles.popularity.toString(),
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ],
-                ),
-                Row(
-                  children: <Widget>[
-                    Icon(Icons.insert_emoticon),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(detalles.knownForDepartment),
-                  ],
-                ),
-              ],
-            ),
-          ),
+          _detallesData(context, detalles),
         ],
       ),
     );
@@ -132,6 +99,39 @@ class DetallesActor extends StatelessWidget {
       ),
       title: Text(detalles.title),
       subtitle: Text(detalles.overview, overflow: TextOverflow.ellipsis),
+    );
+  }
+
+  Widget _detallesData(BuildContext context, SearchActor detalles) {
+    return Flexible(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            detalles.name,
+            style: Theme.of(context).textTheme.headline6,
+            overflow: TextOverflow.ellipsis,
+          ),
+          Row(
+            children: [
+              Icon(Icons.star_border_outlined),
+              Text(
+                detalles.popularity.toString(),
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Icon(Icons.insert_emoticon),
+              SizedBox(
+                width: 10.0,
+              ),
+              Text(detalles.knownForDepartment),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
