@@ -5,16 +5,19 @@ import 'package:http/http.dart' as http;
 import 'package:moviedb/src/models/actores_model.dart';
 import 'package:moviedb/src/models/pelicula_model.dart';
 import 'package:moviedb/src/models/search_actor_model.dart';
+import 'package:moviedb/src/streams/actor_peliculas_stream.dart';
 import 'package:moviedb/src/streams/peliculas_populares_stream.dart';
 
 class PeliculaProvider {
+  final moviesPopularesStream = new PopularesStream();
+  final actorPeliculasDetalles = new ActorStream();
+
   String _apikey = "5962b5a668af804fc284b1e0a5ec4b9c";
   String _language = "es-ES";
   String _url = "api.themoviedb.org";
   int _pagePopular = 0;
   bool _cargando = false;
   List<Pelicula> _populares = [];
-  final moviesPopularesStream = new PopularesStream();
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
     final resp = await http.get(url);

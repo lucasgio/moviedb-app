@@ -14,8 +14,10 @@ class BusquedaActor {
     if (jsonListDetalles == null) return;
     for (var detallesPeliculas in jsonListDetalles) {
       final _resp = detallesPeliculas['known_for'] as List;
-      listaPeliculasDetallesActor =
-          _resp.map((e) => SearchActor.detallesActor(e)).toList();
+      if (listaPeliculasDetallesActor.length < 3) {
+        listaPeliculasDetallesActor =
+            _resp.map((e) => SearchActor.detallesActor(e)).toList();
+      }
     }
   }
 }

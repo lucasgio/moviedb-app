@@ -23,6 +23,7 @@ class HomePage extends StatelessWidget {
             _popMenuButton(context),
           ],
         ),
+        drawer: _menuLateral(),
         body: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -105,6 +106,40 @@ class HomePage extends StatelessWidget {
           return showSearch(context: context, delegate: ActorSearch());
         }
       },
+    );
+  }
+
+  Widget _menuLateral() {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: const <Widget>[
+          DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.indigoAccent,
+            ),
+            child: Text(
+              'MovieDB',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(Icons.help_center),
+            title: Text('Como funciona MovieDB'),
+          ),
+          ListTile(
+            leading: Icon(Icons.account_circle),
+            title: Text('Profile'),
+          ),
+          ListTile(
+            leading: Icon(Icons.settings),
+            title: Text('Settings'),
+          ),
+        ],
+      ),
     );
   }
 }
