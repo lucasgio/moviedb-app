@@ -4,9 +4,12 @@ import 'package:moviedb/src/search/data_search.dart';
 import 'package:moviedb/src/search/search_actor.dart';
 import 'package:moviedb/src/widgets/card_swiper.dart';
 import 'package:moviedb/src/widgets/movie_horizontal.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage extends StatelessWidget {
   final _newmovie = new PeliculaProvider();
+  final _color = Colors.indigo;
+  // final String _direccionLinkedIn = 'https://linkedin.com/in/iosvany-alvarez/';
 
   @override
   Widget build(BuildContext context) {
@@ -139,22 +142,54 @@ class HomePage extends StatelessWidget {
 
   Widget _menuOpciones() {
     return Column(children: [
-      ListTile(
-        leading: Icon(Icons.live_help),
-        title: Text('Como funciona MovieDB'),
-      ),
-      ListTile(
-        leading: Icon(Icons.support_agent),
-        title: Text('FAQ'),
-      ),
-      ListTile(
-        leading: Icon(Icons.question_answer),
-        title: Text('Quienes Somos'),
+      _opciones(
+          Icon(
+            Icons.supervised_user_circle,
+            color: _color,
+          ),
+          "Como funciona MovieDB"),
+      _opciones(
+          Icon(
+            Icons.support_agent,
+            color: _color,
+          ),
+          "FAQ"),
+      _opciones(
+          Icon(
+            Icons.history_edu,
+            color: _color,
+          ),
+          "Sobre nosotros"),
+      SizedBox(
+        height: 200.0,
       ),
       Row(
-        children: [],
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          _redesSociales(FontAwesomeIcons.linkedinIn, _color),
+          _redesSociales(FontAwesomeIcons.twitter, _color),
+          _redesSociales(FontAwesomeIcons.instagram, _color),
+          _redesSociales(FontAwesomeIcons.globe, _color),
+        ],
       )
     ]);
+  }
+
+  Widget _opciones(icon, texto) {
+    return ListTile(
+      leading: icon,
+      title: Text(texto),
+    );
+  }
+
+  Widget _redesSociales(icon, color) {
+    return IconButton(
+        icon: FaIcon(
+          icon,
+          size: 35.0,
+          color: _color,
+        ),
+        onPressed: () {});
   }
 }
 
