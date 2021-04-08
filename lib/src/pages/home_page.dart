@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Peliculas",
-            style: TextStyle(fontFamily: "Raleway-Black"),
           ),
           backgroundColor: Colors.indigoAccent.shade700,
           actions: <Widget>[
@@ -28,6 +27,10 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
+              Text(
+                "Play Now",
+                style: TextStyle(fontSize: 20.0),
+              ),
               _swiperTarjeta(),
               _footer(context),
             ],
@@ -59,7 +62,7 @@ class HomePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
-              "Populares",
+              "Peliculas mas Vistas",
               style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
@@ -110,37 +113,48 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _menuLateral() {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: const <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.indigoAccent,
-            ),
-            child: Text(
-              'MovieDB',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+    return SafeArea(
+      child: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.indigo),
+              child: Center(
+                child: Text(
+                  'MovieDB',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
               ),
             ),
-          ),
-          ListTile(
-            leading: Icon(Icons.help_center),
-            title: Text('Como funciona MovieDB'),
-          ),
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Profile'),
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-          ),
-        ],
+            _menuOpciones(),
+          ],
+        ),
       ),
     );
+  }
+
+  Widget _menuOpciones() {
+    return Column(children: [
+      ListTile(
+        leading: Icon(Icons.live_help),
+        title: Text('Como funciona MovieDB'),
+      ),
+      ListTile(
+        leading: Icon(Icons.support_agent),
+        title: Text('FAQ'),
+      ),
+      ListTile(
+        leading: Icon(Icons.question_answer),
+        title: Text('Quienes Somos'),
+      ),
+      Row(
+        children: [],
+      )
+    ]);
   }
 }
 
