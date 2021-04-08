@@ -96,11 +96,4 @@ class PeliculaProvider {
         new BusquedaActor.procesarDetallesPeliculas(decodeData['results']);
     return actores.listaPeliculasDetallesActor;
   }
-
-  // Future<List> cargarGeneros() async {
-  //   final resp = await rootBundle.loadString('assets/generos.json');
-  //   Map<String, dynamic> dataGeneros = json.decode(resp);
-  //   generos.add(dataGeneros['generos']);
-  //   return generos;
-  // }
 }
