@@ -142,24 +142,9 @@ class HomePage extends StatelessWidget {
 
   Widget _menuOpciones() {
     return Column(children: [
-      _opciones(
-          Icon(
-            Icons.supervised_user_circle,
-            color: _color,
-          ),
-          "Como funciona MovieDB"),
-      _opciones(
-          Icon(
-            Icons.support_agent,
-            color: _color,
-          ),
-          "FAQ"),
-      _opciones(
-          Icon(
-            Icons.history_edu,
-            color: _color,
-          ),
-          "Sobre nosotros"),
+      _opciones(Icons.supervised_user_circle, "Como funciona MovieDB"),
+      _opciones(Icons.support_agent, "FAQ"),
+      _opciones(Icons.developer_board, "Desarrollador"),
       SizedBox(
         height: 200.0,
       ),
@@ -177,7 +162,10 @@ class HomePage extends StatelessWidget {
 
   Widget _opciones(icon, texto) {
     return ListTile(
-      leading: icon,
+      leading: Icon(
+        icon,
+        color: _color,
+      ),
       title: Text(texto),
     );
   }
