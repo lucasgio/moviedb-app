@@ -1,3 +1,4 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:moviedb/src/providers/pelicula_provider.dart';
 import 'package:moviedb/src/search/data_search.dart';
@@ -5,6 +6,7 @@ import 'package:moviedb/src/search/search_actor.dart';
 import 'package:moviedb/src/widgets/card_swiper.dart';
 import 'package:moviedb/src/widgets/movie_horizontal.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:another_flushbar/flushbar.dart';
 
 class HomePage extends StatelessWidget {
   final _newmovie = new PeliculaProvider();
@@ -13,9 +15,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    _checkInternet(context);
     _newmovie.getPopulares();
     return Scaffold(
-        // backgroundColor: Colors.black87,
         appBar: AppBar(
           title: Text(
             "Peliculas",
@@ -118,20 +120,24 @@ class HomePage extends StatelessWidget {
   Widget _menuLateral() {
     return SafeArea(
       child: Drawer(
+        elevation: 0.0,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              decoration: BoxDecoration(color: Colors.indigo),
-              child: Center(
-                child: Text(
-                  'MovieDB',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                  ),
-                ),
-              ),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/movie.png'),
+                      fit: BoxFit.cover)),
+              child: Container(),
+            ),
+            Text(
+              "MovieDB",
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 20.0),
+            ),
+            SizedBox(
+              height: 20.0,
             ),
             _menuOpciones(),
           ],
@@ -147,6 +153,10 @@ class HomePage extends StatelessWidget {
       _opciones(Icons.developer_board, "Desarrollador"),
       SizedBox(
         height: 200.0,
+      ),
+      Text(
+        "Redes Sociales",
+        style: TextStyle(fontSize: 20.0),
       ),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -178,6 +188,30 @@ class HomePage extends StatelessWidget {
           color: _color,
         ),
         onPressed: () {});
+  }
+
+  _checkInternet(BuildContext context) async {
+    final _result = await Connectivity().checkConnectivity();
+    if (_result == ConnectivityResult.none) {
+      Flushbar(
+        flushbarStyle: FlushbarStyle.FLOATING,
+        message: "No hay conexion a internet",
+        duration: Duration(seconds: 5),
+        isDismissible: false,
+        flushbarPosition: FlushbarPosition.BOTTOM,
+        backgroundColor: Colors.indigo,
+      )..show(context);
+    } else if (_result == ConnectivityResult.mobile ||
+        _result == ConnectivityResult.wifi) {
+      Flushbar(
+        flushbarStyle: FlushbarStyle.FLOATING,
+        message: "Bienvenido a MovieDB",
+        duration: Duration(seconds: 5),
+        isDismissible: false,
+        flushbarPosition: FlushbarPosition.BOTTOM,
+        backgroundColor: Colors.green,
+      )..show(context);
+    }
   }
 }
 
