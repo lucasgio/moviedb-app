@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:moviedb/src/pages/actor_detalle.dart';
+import 'package:moviedb/src/pages/app_page.dart';
+import 'package:moviedb/src/pages/faq_page.dart';
 import 'package:moviedb/src/pages/home_page.dart';
 import 'package:moviedb/src/pages/peliculas_detalle.dart';
 
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => HomePage(),
         'detalle': (BuildContext context) => PeliculaDetalle(),
         'actordetalle': (BuildContext context) => DetallesActor(),
+        'funciona': (BuildContext context) => AppInfo(),
+        'faq': (BuildContext context) => FaqPage(),
       },
     );
   }
