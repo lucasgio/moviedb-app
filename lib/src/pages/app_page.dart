@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moviedb/src/models/faq_model.dart';
 import 'package:moviedb/src/providers/pelicula_provider.dart';
-import 'package:slimy_card/slimy_card.dart';
 
 class AppInfo extends StatefulWidget {
   AppInfo({Key key}) : super(key: key);
@@ -15,7 +14,6 @@ class _AppInfoState extends State<AppInfo> {
   List<bool> isOpen;
   @override
   Widget build(BuildContext context) {
-    final _screenwidth = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.indigoAccent.shade700,
