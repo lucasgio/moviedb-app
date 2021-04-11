@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.w800,
                   fontSize: 20.0,
-                  color: Colors.redAccent),
+                  color: Colors.blue),
             ),
           ),
           SizedBox(

@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 import 'package:moviedb/src/models/actores_model.dart';
+import 'package:moviedb/src/models/faq_model.dart';
 import 'package:moviedb/src/models/pelicula_model.dart';
 import 'package:moviedb/src/models/search_actor_model.dart';
 import 'package:moviedb/src/streams/actor_peliculas_stream.dart';
@@ -18,6 +20,7 @@ class PeliculaProvider {
   int _pagePopular = 0;
   bool _cargando = false;
   List<Pelicula> _populares = [];
+  List<dynamic> faq = [];
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
     final resp = await http.get(url);
@@ -95,5 +98,12 @@ class PeliculaProvider {
     final actores =
         new BusquedaActor.procesarDetallesPeliculas(decodeData['results']);
     return actores.listaPeliculasDetallesActor;
+  }
+
+  Future<List<Informacion>> cargarFaq() async {
+    final _resp = await rootBundle.loadString('assets/faq.json');
+    Map dataMap = jsonDecode(_resp);
+    final faq = new Informacion.fromJsonList(dataMap['faq']);
+    return faq.faq;
   }
 }

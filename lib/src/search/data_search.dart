@@ -51,20 +51,23 @@ class DataSearch extends SearchDelegate {
             final busquedas = snapshot.data;
             return ListView(
               children: busquedas
-                  .map((busqueda) => ListTile(
-                        leading: FadeInImage(
-                          placeholder: AssetImage("assets/no-image.jpg"),
-                          image: NetworkImage(busqueda.getPosterImg()),
-                          width: 50.0,
-                          fit: BoxFit.contain,
+                  .map((busqueda) => Hero(
+                        tag: busqueda.uniqueid = "${busqueda.id} - search",
+                        child: ListTile(
+                          leading: FadeInImage(
+                            placeholder: AssetImage("assets/no-image.jpg"),
+                            image: NetworkImage(busqueda.getPosterImg()),
+                            width: 50.0,
+                            fit: BoxFit.contain,
+                          ),
+                          title: Text(busqueda.title),
+                          subtitle: Text(busqueda.originalTitle),
+                          onTap: () {
+                            close(context, null);
+                            Navigator.pushNamed(context, 'detalle',
+                                arguments: busqueda);
+                          },
                         ),
-                        title: Text(busqueda.title),
-                        subtitle: Text(busqueda.originalTitle),
-                        onTap: () {
-                          close(context, null);
-                          Navigator.pushNamed(context, 'detalle',
-                              arguments: busqueda);
-                        },
                       ))
                   .toList(),
             );
