@@ -1,3 +1,5 @@
+languge:
+  - dart
 os:
   - windows
 sudo: false
