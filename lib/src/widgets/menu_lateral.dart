@@ -20,7 +20,7 @@ class MenuLateral extends StatelessWidget {
               child: Container(),
             ),
             Text(
-              "MovieDB",
+              "MovieData",
               style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -32,10 +32,8 @@ class MenuLateral extends StatelessWidget {
             ),
             _opcionesMenu(context, Icons.stream, "Como funciona?", 1),
             Divider(),
-            _opcionesMenu(context, Icons.developer_board, "Desarrollador", 2),
-            Divider(),
             SizedBox(
-              height: 300.0,
+              height: 350.0,
             ),
             Divider(
               thickness: 3.0,

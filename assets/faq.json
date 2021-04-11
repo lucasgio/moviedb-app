@@ -2,20 +2,20 @@
     {"faq": 
      [ 
         {
-        "ask": "Que es MovieDB?",
-        "answer": "MovieDB es una aplicacion donde el usuario puede consultar informacion acerca de miles de peliculas que estan en estreno o  clasicas."
+        "ask": "Que es MovieData?",
+        "answer": "MovieData es una aplicacion donde el usuario puede consultar informacion acerca de miles de peliculas que estan en estreno o  clasicas."
         },
         {
         "ask": "Que son las tarjetas en la pagina principal?",
         "answer": "Bueno esas tarjeta se dividen en dos secciones.La primera que es la mas grande le mostrara al usuari las peliculas que estan en cine o en plataformas de streaming ahora mismo.La segunda es un listado de tarjeta con las peliculas mas populares actualmente en el mundo."
         },
         {
-        "ask": "Necesito estar conectado a internet para usar MovieDB",
-        "answer": "Si,debera tener una conexion a internet ya sea via wifi o datos moviles para que funcione la aplicacion,porque MovieDB se alimenta de una base de datos internacional que se actualiza en tiempo real."
+        "ask": "Necesito estar conectado a internet para usar MovieData",
+        "answer": "Si,debera tener una conexion a internet ya sea via wifi o datos moviles para que funcione la aplicacion,porque MovieData se alimenta de una base de datos internacional que se actualiza en tiempo real."
         },
         {
         "ask": "Que otras funciones tiene la aplicacion?",
-        "answer": "Bueno con MovieDB puede realizar una busqueda por actor o pelicula.Cuando quiera buscar por actor,director o cualquier miembro del casting de una pelicula solo debera proporcionar el nombre y se le mostrar su informacion.Si quiere ver una pelicula de su gusto puede escribir su nombre y aparecera la informacion detallada y el cast de la pelicula"
+        "answer": "Bueno con MovieData puede realizar una busqueda por actor o pelicula.Cuando quiera buscar por actor,director o cualquier miembro del casting de una pelicula solo debera proporcionar el nombre y se le mostrar su informacion.Si quiere ver una pelicula de su gusto puede escribir su nombre y aparecera la informacion detallada y el cast de la pelicula"
         },
         {
         "ask": "Es gratis esta aplicacion?",

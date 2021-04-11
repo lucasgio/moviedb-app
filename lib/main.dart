@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:moviedb/src/pages/actor_detalle.dart';
 import 'package:moviedb/src/pages/app_page.dart';
-import 'package:moviedb/src/pages/faq_page.dart';
 import 'package:moviedb/src/pages/home_page.dart';
 import 'package:moviedb/src/pages/peliculas_detalle.dart';
 
@@ -28,14 +27,13 @@ class MyApp extends StatelessWidget {
         const Locale('en', ''), // English, no country code
         const Locale('es', ''), // Spanish, no country code
       ],
-      title: 'Peliculas',
+      title: 'MovieData',
       initialRoute: '/',
       routes: {
         '/': (BuildContext context) => HomePage(),
         'detalle': (BuildContext context) => PeliculaDetalle(),
         'actordetalle': (BuildContext context) => DetallesActor(),
         'funciona': (BuildContext context) => AppInfo(),
-        'faq': (BuildContext context) => FaqPage(),
       },
     );
   }
