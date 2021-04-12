@@ -35,7 +35,7 @@ class _AppInfoState extends State<AppInfo> {
                   .toList(),
             );
           } else {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           }
         },
       ),
