@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
-
+// My imports
 import 'package:moviedb/src/models/actores_model.dart';
 import 'package:moviedb/src/models/pelicula_model.dart';
-import 'package:moviedb/src/providers/pelicula_provider.dart';
+import 'package:moviedb/src/providers/actor_provider.dart';
 
 class PeliculaDetalle extends StatelessWidget {
   @override
@@ -119,7 +119,7 @@ class PeliculaDetalle extends StatelessWidget {
   }
 
   Widget _crearCasting(Pelicula pelicula) {
-    final peliProvider = new PeliculaProvider();
+    final peliProvider = new ActorProvider();
     return FutureBuilder(
       future: peliProvider.getCast(pelicula.id.toString()),
       builder: (BuildContext context, AsyncSnapshot<List> snapshot) {

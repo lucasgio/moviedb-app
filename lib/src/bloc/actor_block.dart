@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:moviedb/src/models/search_actor_model.dart';
 
-class ActorStream {
-  ActorStream();
+class ActorBloc {
+  ActorBloc();
 
   final actorPeliculasController =
       StreamController<List<SearchActor>>.broadcast();

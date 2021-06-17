@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+// My imports
 import 'package:moviedb/src/models/search_actor_model.dart';
-import 'package:moviedb/src/providers/pelicula_provider.dart';
+import 'package:moviedb/src/providers/actor_provider.dart';
 
 class ActorSearch extends SearchDelegate {
-  final actor = new PeliculaProvider();
+  final actor = new ActorProvider();
   String seleccion = '';
 
   @override

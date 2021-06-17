@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+// My imports
 import 'package:moviedb/src/models/search_actor_model.dart';
-import 'package:moviedb/src/providers/pelicula_provider.dart';
+import 'package:moviedb/src/providers/actor_provider.dart';
 
 class DetallesActor extends StatelessWidget {
   @override
@@ -65,7 +66,7 @@ class DetallesActor extends StatelessWidget {
   }
 
   Widget _crearPeliDetalles(SearchActor detalles) {
-    final detallesActor = new PeliculaProvider();
+    final detallesActor = new ActorProvider();
     return FutureBuilder(
       future: detallesActor.getActorPeliculas(detalles.name),
       builder: (BuildContext context, AsyncSnapshot<List> snapshot) {

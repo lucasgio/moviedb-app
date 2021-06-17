@@ -30,15 +30,16 @@ class MyApp extends StatelessWidget {
       title: 'MovieData',
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => HomePage(),
-        'detalle': (BuildContext context) => PeliculaDetalle(),
-        'actordetalle': (BuildContext context) => DetallesActor(),
-        'funciona': (BuildContext context) => AppInfo(),
+        '/': (_) => HomePage(),
+        'detalle': (_) => PeliculaDetalle(),
+        'actordetalle': (_) => DetallesActor(),
+        'funciona': (_) => AppInfo(),
       },
     );
   }
 }
 
+// chequea que haya conexion a internet
 class MyHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext context) {

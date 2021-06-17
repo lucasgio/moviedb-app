@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:moviedb/src/models/pelicula_model.dart';
 
-class PopularesStream {
-  PopularesStream();
+class PopularesBloc {
+  PopularesBloc();
 
   final popularesStreamController =
       StreamController<List<Pelicula>>.broadcast();
