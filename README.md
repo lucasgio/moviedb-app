@@ -1,3 +1,7 @@
+
+
+https://user-images.githubusercontent.com/57779728/122685046-2989c280-d1d7-11eb-9d37-7e38ce47b9f7.mp4
+
 # moviedb
 
 MovieDb es una aplicacion que muestra al usuario las sipnosis de una pelicula.Tambien el reparto de las películas
